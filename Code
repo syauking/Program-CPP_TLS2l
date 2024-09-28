@@ -1,0 +1,91 @@
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+void fahrenheitToCelsius(double fahrenheit) {
+    double celsius = (fahrenheit - 32) * 5 / 9;
+    cout << fixed << setprecision(2) << fahrenheit << " F = " << celsius << " C" << endl;
+}
+
+void fahrenheitToKelvin(double fahrenheit) {
+    double kelvin = (fahrenheit - 32) * 5 / 9 + 273.15;
+    cout << fixed << setprecision(2) << fahrenheit << " F = " << kelvin << " K" << endl;
+}
+
+void celsiusToFahrenheit(double celsius) {
+    double fahrenheit = (celsius * 9 / 5) + 32;
+    cout << fixed << setprecision(2) << celsius << " C = " << fahrenheit << " F" << endl;
+}
+
+void celsiusToKelvin(double celsius) {
+    double kelvin = celsius + 273.15;
+    cout << fixed << setprecision(2) << celsius << " C = " << kelvin << " K" << endl;
+}
+
+void kelvinToFahrenheit(double kelvin) {
+    double fahrenheit = (kelvin - 273.15) * 9 / 5 + 32;
+    cout << fixed << setprecision(2) << kelvin << " K = " << fahrenheit << " F" << endl;
+}
+
+void kelvinToCelsius(double kelvin) {
+    double celsius = kelvin - 273.15;
+    cout << fixed << setprecision(2) << kelvin << " K = " << celsius << " C" << endl;
+}
+
+int main() {
+    int choice;
+    double temperature;
+    char repeat;
+
+    do {
+        cout << "Temperature Conversion Program\n";
+        cout << "Choose the conversion type:\n";
+        cout << "1. Fahrenheit to Celsius\n";
+        cout << "2. Fahrenheit to Kelvin\n";
+        cout << "3. Celsius to Fahrenheit\n";
+        cout << "4. Celsius to Kelvin\n";
+        cout << "5. Kelvin to Fahrenheit\n";
+        cout << "6. Kelvin to Celsius\n";
+        cout << "Enter your choice (1-6): ";
+        cin >> choice;
+
+        if (choice < 1 || choice > 6) {
+            cout << "Ngawur" << endl;
+            continue;
+        }
+
+        cout << "Enter the temperature value: ";
+        cin >> temperature;
+
+        switch (choice) {
+            case 1:
+                fahrenheitToCelsius(temperature);
+                break;
+            case 2:
+                fahrenheitToKelvin(temperature);
+                break;
+            case 3:
+                celsiusToFahrenheit(temperature);
+                break;
+            case 4:
+                celsiusToKelvin(temperature);
+                break;
+            case 5:
+                kelvinToFahrenheit(temperature);
+                break;
+            case 6:
+                kelvinToCelsius(temperature);
+                break;
+        }
+
+        cout << "Would you like to calculate again? (y/n): ";
+        cin >> repeat;
+
+    } while (repeat == 'y' || repeat == 'Y');
+
+    cout << "Terimakasih sudah memakai program ini! -Syauqi" << endl;
+
+    return 0;
+}
